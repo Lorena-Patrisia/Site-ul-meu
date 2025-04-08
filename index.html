@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descoperă Barcelona</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #ffc0cb, #ffe6f0);
+      margin: 0;
+      padding: 0;
+      animation: fadeIn 1s ease-in;
+      scroll-behavior: smooth;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    header {
+      background: linear-gradient(to right, #ff69b4, #ff1493);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      font-family: 'Playfair Display', serif;
+    }
+    nav {
+      background-color: #ff85b3;
+      padding: 12px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      padding: 10px 12px;
+      transition: background 0.3s ease, transform 0.3s ease;
+      border-radius: 10px;
+    }
+    nav a:hover {
+      background-color: #ffaad4;
+      transform: scale(1.1);
+    }
+    section {
+      padding: 30px 20px;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      animation: fadeUp 0.8s ease-in-out;
+      transition: transform 0.3s ease;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 25px;
+    }
+    .gallery figure {
+      margin: 0;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .gallery figure:hover img {
+      transform: scale(1.05);
+    }
+    .gallery figcaption {
+      margin-top: 10px;
+      font-style: italic;
+      color: #555;
+      font-size: 0.95em;
+    }
+    footer {
+      background-color: #ff69b4;
+      color: white;
+      text-align: center;
+      padding: 12px;
+      font-size: 14px;
+    }
+    .lang-selector {
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    /* Lightbox Preview */
+    #lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    #lightbox img {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    @media screen and (max-width: 600px) {
+      header h1 {
+        font-size: 24px;
+      }
+      nav a {
+        margin: 0 8px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Descoperă Barcelona</h1>
+    <p>Un oraș vibrant, plin de culoare și cultură!</p>
+    <div class="lang-selector">
+      <label for="lang">Alege limba: </label>
+      <select id="lang" onchange="changeLanguage(this.value)">
+        <option value="ro">Română</option>
+        <option value="en">English</option>
+        <option value="es">Español</option>
+      </select>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#istorie">Istorie</a>
+    <a href="#obiective">Obiective turistice</a>
+    <a href="#gastronomie">Gastronomie</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#harta">Hartă</a>
+  </nav>
+
+  <section id="istorie">
+    <div class="card">
+      <h2>Istoria Barcelonei</h2>
+      <p>Barcelona are o istorie de peste 2000 de ani. A fost fondată de romani și a devenit un centru economic și cultural important în Europa. Astăzi, este capitala regiunii Catalonia și unul dintre cele mai vizitate orașe din lume.</p>
+    </div>
+  </section>
+
+  <section id="obiective">
+    <div class="card">
+      <h2>Obiective turistice</h2>
+      <ul>
+        <li>Sagrada Familia – impresionanta biserică proiectată de Antoni Gaudí</li>
+        <li>Parcul Güell – un parc plin de culoare și forme fantastice</li>
+        <li>La Rambla – bulevardul faimos pentru artiști stradali și cafenele</li>
+        <li>Cartierul Gotic – labirint de străduțe medievale</li>
+        <li>Plajele Barcelonei – ideale pentru relaxare și soare</li>
+      </ul>
+    </div>
+  </section>
+ 
+  <section id="gastronomie">
+    <div class="card">
+      <h2>Gastronomia catalană</h2>
+      <p>Bucătăria din Barcelona este diversă și delicioasă. Nu rata paella, tapas, crema catalana sau fideuà. Piețele locale, cum ar fi La Boqueria, oferă o experiență culinară autentică.</p>
+    </div>
+  </section>
+
+  <section id="galerie">
+    <div class="card">
+      <h2>Galerie foto</h2>
+      <div class="gallery">
+        <figure onclick="openLightbox(this)">
+          <img src=sagrada.jpg alt="Sagrada Familia">
+          <figcaption>Sagrada Familia - Capodoperă a arhitecturii lui Antoni Gaudí</figcaption>
+        </figure>
+        <figure onclick="openLightbox(this)">
+          <img src=parcguelljpg.jpg alt="Parcul Güell">
+         <figcaption>Parcul Guell - Un obiectiv de neratat, cu peisaje superbe</figcaption> 
+        </figure>
+        <figure onclick="openLightbox(this)">
+          <img src=cartierulgotic.jpg alt="Cartierul Gotic">
+          <figcaption>Cartierul Gotic - Inima medievală a Barcelonei</figcaption>
+        </figure>
+        <figure onclick="openLightbox(this)">
+          <img src=sagradacurcubeu.jpg alt="Sagrada Familia cu curcubeu">
+          <figcaption>Vedere magică a Sagrada Familia sub un curcubeu strălucitor.</figcaption>
+        </figure>
+        <figure onclick="openLightbox(this)">
+          <img src=pargueellpanorama.jpg alt="Panorama Parcul Güell">
+          <figcaption>Panorama emblematică din Parcul Güell</figcaption>
+        </figure>
+        <figure onclick="openLightbox(this)">
+          <img src=catedrala.jpg alt="Catedrala din Cartierul Gotic">
+          <figcaption>Catedrala gotică din inima Barcelonei</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+  <section id="harta">
+    <div class="card">
+      <h2>Harta Barcelonei</h2>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.0666671165346!2d2.1700976766474187!3d41.385063871297374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a2f3f4b938b1%3A0x3d075b02e97283b!2sBarcelona%2C%20Spania!5e0!3m2!1sro!2sro!4v1712485438296!5m2!1sro!2sro" width="100%" height="450" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Descoperă Barcelona. Toate drepturile rezervate.</p>
+  </footer>
+
+  <!-- Lightbox -->
+  <div id="lightbox" onclick="this.style.display='none'">
+    <img src="" alt="Preview imagine">
+  </div>
+
+  <script>
+    function changeLanguage(lang) {
+      alert("Funcționalitatea de schimbare a limbii nu este implementată complet, dar ați selectat: " + lang);
+    }
+
+    function openLightbox(figure) {
+      const img = figure.querySelector("img");
+      const lightbox = document.getElementById("lightbox");
+      lightbox.style.display = "flex";
+      lightbox.querySelector("img").src = img.src;
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
